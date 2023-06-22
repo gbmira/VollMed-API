@@ -2,10 +2,8 @@ package med.voll.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med.voll.api.paciente.DadosCadastroPaciente;
-import med.voll.api.paciente.DadosListagemPaciente;
-import med.voll.api.paciente.Paciente;
-import med.voll.api.paciente.PacienteRepository;
+import med.voll.api.medico.DadosAtualizaMedico;
+import med.voll.api.paciente.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +19,7 @@ public class PacienteController {
 
     @PostMapping
     @Transactional
-    public void cadastraPaciente(@RequestBody @Valid DadosCadastroPaciente dados){
+    public void cadastrar(@RequestBody @Valid DadosCadastroPaciente dados){
 
         repository.save(new Paciente(dados));
     }
@@ -30,4 +28,19 @@ public class PacienteController {
     public Page<DadosListagemPaciente> listar(@PageableDefault(sort = {"nome"}) Pageable paginacao){
         return repository.findAll(paginacao).map(DadosListagemPaciente::new);
     }
+
+    @PutMapping(value = "/{id}")
+    @Transactional
+    public void atualizar(@PathVariable Long id, @RequestBody DadosAtualizaPaciente dados){
+        var paciente = repository.getReferenceById(id);
+        paciente.atualizarInformacoes(dados);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    @Transactional
+    public void deletar(@PathVariable Long id){
+        var paciente = repository.getReferenceById(id);
+        paciente.excluir();
+    }
+
 }

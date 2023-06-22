@@ -30,6 +30,7 @@ public class Paciente {
     private String cpf;
     @Embedded
     private Endereco endereco;
+    private Character status;
 
     public Paciente(DadosCadastroPaciente dados){
         this.nome = dados.nome();
@@ -37,5 +38,22 @@ public class Paciente {
         this.telefone = dados.telefone();
         this.cpf = dados.cpf();
         this.endereco = new Endereco(dados.endereco());
+        this.status = 'A';
+    }
+
+    public void atualizarInformacoes(DadosAtualizaPaciente dados) {
+        if(dados.nome() != null){
+            this.nome = dados.nome();
+        }
+        if(dados.telefone() != null){
+            this.telefone = dados.telefone();
+        }
+        if(dados.endereco() != null){
+            this.endereco.atualizarInformacoes(dados.endereco());
+        }
+    }
+
+    public void excluir() {
+        this.status = 'I';
     }
 }
