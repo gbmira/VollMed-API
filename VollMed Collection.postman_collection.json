@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "cc6290b8-2521-420b-b3cd-c91e94e6ae8f",
+		"name": "VollMed Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23735739",
+		"_collection_link": "https://www.postman.com/winter-trinity-229683/workspace/vollmed/collection/23735739-cc6290b8-2521-420b-b3cd-c91e94e6ae8f?action=share&creator=23735739&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "CadastroMedico",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nome\": \"Giovanna Albino\",\r\n\"email\": \"gi@voll.med\",\r\n\"crm\": \"123321\",\r\n\"telefone\": \"11953456722\",\r\n\"especialidade\": \"GINECOLOGIA\",\r\n\"endereco\": {\r\n    \"logradouro\": \"rua 10\",\r\n    \"bairro\": \"cohab 2\",\r\n    \"cep\": \"06326080\",\r\n    \"cidade\": \"Carapicuiba\",\r\n    \"uf\": \"SP\",\r\n    \"numero\": \"12\",\r\n    \"complemento\": \"APTO\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/medicos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CadastroPaciente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Alex Marco\",\r\n    \"email\": \"alex@gmail.com\",\r\n    \"telefone\": \"11956844822\",\r\n    \"cpf\": \"458.333.994-43\",\r\n    \"endereco\": {\r\n        \"logradouro\": \"rua 11\",\r\n        \"bairro\": \"bairro\",\r\n        \"cep\": \"12325678\",\r\n        \"cidade\": \"Brasilia\",\r\n        \"uf\": \"DF\",\r\n        \"numero\": \"1\",\r\n        \"complemento\": \"complemento\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pacientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pacientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AtualizaMedico",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Jair Mira\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/medicos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"medicos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AtualizaPaciente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Jair Mira\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/medicos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"medicos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMedicos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/medicos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"medicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarPacientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pacientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pacientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ExcluiMedico",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/medicos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"medicos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ExcluiPaciente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pacientes/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pacientes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
