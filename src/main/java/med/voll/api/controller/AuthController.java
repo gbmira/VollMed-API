@@ -3,6 +3,7 @@ package med.voll.api.controller;
 import jakarta.validation.Valid;
 import med.voll.api.domain.usuario.DadosAuth;
 import med.voll.api.domain.usuario.Usuario;
+import med.voll.api.domain.usuario.UsuarioRepository;
 import med.voll.api.infra.security.DadosTokenJWT;
 import med.voll.api.infra.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,11 @@ public class AuthController {
     @Autowired
     private TokenService tokenService;
 
+    @Autowired
+    private UsuarioRepository repository;
+
     @PostMapping
-    public ResponseEntity login(@RequestBody @Valid DadosAuth dados){
+    public ResponseEntity login(@RequestBody @Valid DadosAuth dados) {
         var authToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
         var auth = am.authenticate(authToken);
         var token = tokenService.gerarToken((Usuario) auth.getPrincipal());
