@@ -31,6 +31,7 @@ public class ConsultaService {
 
         var paciente = pacienteRepository.findById(dados.idPaciente()).get();
         var medico = escolherMedico(dados);
+
         var consulta = new Consulta(null,  medico, paciente, dados.data(), null);
         repository.save(consulta);
     }

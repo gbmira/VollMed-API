@@ -9,4 +9,6 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long> {
 
     @Query("SELECT m FROM Paciente m WHERE m.status = 'A'")
     Page<Paciente> findAllStatusA(Pageable paginacao);
+
+    boolean findAtivoById(Long idPaciente);
 }
