@@ -4,8 +4,10 @@ import med.voll.api.domain.ValidacaoException;
 import med.voll.api.domain.consulta.DadosAgendamentoConsulta;
 import med.voll.api.domain.medico.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class ValidadorMedicoAtivo {
+@Component
+public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsultas {
 
     @Autowired
     MedicoRepository repository;
@@ -17,8 +19,8 @@ public class ValidadorMedicoAtivo {
         }
 
         var medicoEstaAtivo = repository.findAtivoById(dados.idMedico());
-        if (!medicoEstaAtivo){
-            throw new ValidacaoException("Medico escolhido não está ativo.")
+        if (medicoEstaAtivo == 'I'){
+            throw new ValidacaoException("Medico escolhido não está ativo.");
         }
     }
 }
