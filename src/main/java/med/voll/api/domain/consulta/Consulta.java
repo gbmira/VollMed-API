@@ -38,6 +38,9 @@ public class Consulta {
     @Enumerated(EnumType.STRING)
     private MotivoCancelamentoConsulta motivoCancelamento;
 
+    public Consulta(Long id, Medico medico, Paciente paciente, LocalDateTime data) {
+    }
+
     public void cancelar(MotivoCancelamentoConsulta motivo) {
         this.motivoCancelamento = motivo;
     }
